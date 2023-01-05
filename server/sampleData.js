@@ -46,33 +46,33 @@ const projects = [
 const clients = [
   {
     id: '1',
-    name: 'Tony Stark',
-    email: 'ironman@gmail.com',
-    phone: '343-567-4333',
+    name: 'Don Draper',
+    email: 'draper@scdp.com',
+    phone: '347-213-4857',
   },
   {
     id: '2',
-    name: 'Natasha Romanova',
-    email: 'blackwidow@gmail.com',
-    phone: '223-567-3322',
+    name: 'Roger Sterling',
+    email: 'sterling@scdp.com',
+    phone: '347-567-2255',
   },
   {
     id: '3',
-    name: 'Thor Odinson',
-    email: 'thor@gmail.com',
-    phone: '324-331-4333',
+    name: 'Cory Ellison',
+    email: 'ellison@uba.com',
+    phone: '212-941-5547',
   },
   {
     id: '4',
-    name: 'Steve Rogers',
-    email: 'steve@gmail.com',
-    phone: '344-562-6787',
+    name: 'Logan Roy',
+    email: 'loganroy@waystar.com',
+    phone: '212-562-6787',
   },
   {
     id: '5',
-    name: 'Bruce Banner',
-    email: 'bruce@gmail.com',
-    phone: '321-468-8887',
+    name: 'Tom Wambsgans',
+    email: 'tomwambsgans@waystar.com',
+    phone: '212-468-8887',
   },
 ];
 

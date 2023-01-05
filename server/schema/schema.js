@@ -1,4 +1,7 @@
-const { projects, clients } = require('../sampleData');
+const { projects, clients } = require('../sampleData'); // original test data
+const Project = require('../models/Project'); // bring in our mongoose/MongoDB Project Model
+const Client = require('../models/Client'); // bring in our mongoose/MongoDB Client Model
+
 const {
   GraphQLSchema,
   GraphQLObjectType,
@@ -29,7 +32,9 @@ const ProjectType = new GraphQLObjectType({
     client: { 
       type: ClientType,
       resolve(parentValue, args) {
-        return clients.find((client) => client.id === parentValue.clientId);
+        return Client.findById(parentValue.clientId);
+        // return clients.find((client) => client.id === parentValue.clientId);
+        // recall clientId comes from the Project model / projects sample data.
       }, 
     },
   }),
@@ -43,7 +48,8 @@ const RootQuery = new GraphQLObjectType({
     clients: {
       type: new GraphQLList(ClientType),
       resolve(parentValue, args) {
-        return clients;
+        return Client.find();
+        // return clients;
       },
     },
     // Query for specific client
@@ -51,14 +57,16 @@ const RootQuery = new GraphQLObjectType({
       type: ClientType,
       args: { id: { type: GraphQLID } },
       resolve(parentValue, args) {
-        return clients.find((client) => client.id === args.id);
+        return Client.findById(args.id);
+        // return clients.find((client) => client.id === args.id);
       },
     },
     // Query for all projects
     projects: {
       type: new GraphQLList(ProjectType),
       resolve(parentValue, args) {
-        return projects;
+        return Project.find();
+        // return projects;
       },
     },
     // Query for specific project
@@ -66,7 +74,8 @@ const RootQuery = new GraphQLObjectType({
       type: ProjectType,
       args: { id: { type: GraphQLID } },
       resolve(parentValue, args) {
-        return projects.find((project) => project.id === args.id);
+        return Project.findById(args.id);
+        // return projects.find((project) => project.id === args.id);
       },
     },
   },
